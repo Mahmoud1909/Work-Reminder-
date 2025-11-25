@@ -1,0 +1,60 @@
+name: khamsat
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+4
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_local_notifications: ^19.4.2
+  timezone: ^0.10.1
+  shared_preferences: ^2.5.3
+  android_alarm_manager_plus: ^5.0.0
+  table_calendar: ^3.2.0
+  intl: ^0.20.2
+  crypto: ^3.0.6
+  permission_handler: ^12.0.1
+  flutter_timezone: ^5.0.0
+  workmanager: ^0.9.0+3
+  android_intent_plus: ^6.0.0
+  package_info_plus: ^9.0.0
+  in_app_purchase: ^3.2.3
+  connectivity_plus: ^7.0.0
+  http: ^1.5.0
+  url_launcher: ^6.3.2
+  flutter_native_splash: ^2.4.6
+  flutter_secure_storage: ^9.2.4
+  rename_app: ^1.6.5
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/splash.png
+    - assets/images/Icon_App.png
+
+flutter_native_splash:
+  color: "#fdfdfe"
+  image: assets/images/splash.png
+  android: true
+  ios: true
+  fullscreen: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/Icon_App.png"
+  remove_alpha_ios: true

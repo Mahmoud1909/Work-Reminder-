@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CFBundleDevelopmentRegion</key>
+		<string>$(DEVELOPMENT_LANGUAGE)</string>
+		<key>CFBundleDisplayName</key>
+		<string>Work Reminder</string>
+		<key>CFBundleExecutable</key>
+		<string>$(EXECUTABLE_NAME)</string>
+		<key>CFBundleIdentifier</key>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundleName</key>
+		<string>Work Reminder</string>
+		<key>CFBundlePackageType</key>
+		<string>APPL</string>
+		<key>CFBundleShortVersionString</key>
+		<string>$(FLUTTER_BUILD_NAME)</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>CFBundleVersion</key>
+		<string>$(FLUTTER_BUILD_NUMBER)</string>
+		<key>LSRequiresIPhoneOS</key>
+		<true/>
+		<key>UILaunchStoryboardName</key>
+		<string>LaunchScreen</string>
+		<key>UIMainStoryboardFile</key>
+		<string>Main</string>
+		<key>UISupportedInterfaceOrientations</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+			<string>UIInterfaceOrientationLandscapeLeft</string>
+			<string>UIInterfaceOrientationLandscapeRight</string>
+		</array>
+		<key>UISupportedInterfaceOrientations~ipad</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+			<string>UIInterfaceOrientationPortraitUpsideDown</string>
+			<string>UIInterfaceOrientationLandscapeLeft</string>
+			<string>UIInterfaceOrientationLandscapeRight</string>
+		</array>
+		<key>CADisableMinimumFrameDurationOnPhone</key>
+		<true/>
+		<key>UIApplicationSupportsIndirectInputEvents</key>
+		<true/>
+		<!-- ========== Background modes (تقارب وظيفة foreground service / alarms على Android) ========== -->
+		<key>UIBackgroundModes</key>
+		<array>
+			<!-- background fetch يسمح للتطبيق يعمل تحديثات قصيرة في الخلفية -->
+			<string>fetch</string>
+			<!-- استقبال remote notifications (content-available) -->
+			<string>remote-notification</string>
+			<!-- (processing ليس قيمة هنا؛ استخدام BGTaskScheduler بدلاً منه) -->
+		</array>
+		<!-- يسمح لـ BGTaskScheduler بتشغيل مهام مسموح بها -->
+		<key>BGTaskSchedulerPermittedIdentifiers</key>
+		<array>
+			<string>com.example.workreminder.refresh</string>
+			<string>com.example.workreminder.processing</string>
+		</array>
+		<!-- شرح لطلب الإذن لو بتستخدم الموقع (لو مش بتستخدمه احذف المفتاح) -->
+		<!--
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>نستخدم الموقع لأجل جدولة/تذكيرات مرتبطة بالمكان</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>نحتاج الوصول للموقع أثناء الاستخدام لتحسين الخدمات</string>
+    -->
+		<!-- شرح إنك هتستخدم الإشعارات (ليست مطلوبة لكن توضيح مفيد لرفق App Store) -->
+		<key>NSUserNotificationUsageDescription</key>
+		<string>نحتاج إرسال إشعارات لتذكير المستخدم بالمواعيد والمهام</string>
+		<!-- لو بتستخدم ميزة تقارير الخلفية أو Health أو غيرها ضيف المفاتيح المطلوبة هنا -->
+		<!-- Optional: Firebase automatic integration flag (لو بتستخدم Firebase Messaging وتحب تتحكم) -->
+		<!-- <key>FirebaseAppDelegateProxyEnabled</key>
+    <false/> -->
+		<key>UIStatusBarHidden</key>
+		<true/>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
+		<false/>
+	</dict>
+</plist>
