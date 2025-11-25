@@ -1372,14 +1372,14 @@ class NotificationsService {
 
   Duration _getReminderDurationFromString(String reminder) {
     final r = reminder.toLowerCase().trim();
-    if (r.contains('نصف') || r.contains('نص'))
-      return const Duration(minutes: 30);
     if (r.contains('ساعة ونصف') || r.contains('1.5') || r.contains('90'))
       return const Duration(minutes: 90);
-    if (r.contains('ساعة') && r.contains('ين') == false && r.contains('ون'))
-      return const Duration(hours: 1);
     if (r.contains('ساعتين') || r.contains('2h') || r.contains('2 hours'))
       return const Duration(hours: 2);
+    if (r.contains('ساعة') && !r.contains('نصف'))
+      return const Duration(hours: 1);
+    if (r.contains('نصف') || r.contains('نص'))
+      return const Duration(minutes: 30);
     // english fallbacks
     switch (r) {
       case '1 hour':
