@@ -20,6 +20,15 @@ if (localPropertiesFile.exists()) {
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '1'
 def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0'
 
+// قراءة ملف key.properties
+def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withReader('UTF-8') { reader ->
+        keystoreProperties.load(reader)
+    }
+}
+
 android {
     namespace "com.work.work"
     compileSdkVersion 36
@@ -39,6 +48,17 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+    // ==== إضافة signingConfigs هنا ====
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties["keyAlias"] as String
+            keyPassword keystoreProperties["keyPassword"] as String
+            storeFile file(keystoreProperties["storeFile"] as String)
+            storePassword keystoreProperties["storePassword"] as String
+        }
+    }
+
+
     defaultConfig {
         applicationId "com.work.work"
         multiDexEnabled true
@@ -50,8 +70,8 @@ android {
 
     buildTypes {
         release {
-            // Signing with debug for now — change before publishing.
-            signingConfig signingConfigs.debug
+            // استخدم الـ release signingConfig بدل debug
+            signingConfig signingConfigs.release
             minifyEnabled false
             shrinkResources false
         }
@@ -67,8 +87,5 @@ dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
     implementation 'androidx.window:window:1.0.0'
     implementation 'androidx.window:window-java:1.0.0'
-
-    // خليت باكجات الاشعارات كما هي في pubspec (ما شلتش حاجة)
     implementation 'androidx.core:core-ktx:1.9.0'
-    // لو هتفعل FCM في المستقبل: implementation 'com.google.firebase:firebase-messaging:23.2.0'
 }
